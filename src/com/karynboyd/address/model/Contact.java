@@ -25,20 +25,26 @@ public class Contact
     private final IntegerProperty zip;
     private final StringProperty email;
     private final StringProperty phone;
-    
-    
-    public Contact(String firstName, String lastName, String street, String city, String state, int zip, String email, String phone)
+ 
+    public Contact() 
     {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);        
-        this.street = new SimpleStringProperty(street);
-        this.city = new SimpleStringProperty(city);
-        this.state = new SimpleStringProperty(state);
-        this.zip = new SimpleIntegerProperty(zip);
-        this.email = new SimpleStringProperty(email);
-        this.phone = new SimpleStringProperty(phone);        
+        this(null, null);
     }
-    
+
+    public Contact(String firstName, String lastName) {
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+
+        // data for testing
+        this.street = new SimpleStringProperty("some street");
+        this.zip = new SimpleIntegerProperty(1234);
+        this.city = new SimpleStringProperty("some city");
+        this.state = new SimpleStringProperty("IL");
+       this.email = new SimpleStringProperty("someone@somecompany.com");
+        this.phone = new SimpleStringProperty("111-222-3333");
+
+   }
+
     public String getFirstName() { return firstName.get(); }
     public void setFirstName(String firstName) { this.firstName.set(firstName); }
     public StringProperty firstNameProperty() { return firstName; }
